@@ -4,7 +4,7 @@ const userController = require("../controller/user-controller");
 
 const router = express.Router();
 
-router.post("/add", userController.addProfile);
-router.get("/get", userController.getProfile);
+router.get("/users", userController.getProfile);
+router.post("/users", userController.addProfile);
 
 module.exports = router;
