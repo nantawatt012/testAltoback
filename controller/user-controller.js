@@ -1,13 +1,12 @@
-// import { createConnection } from "mysql2/promise";
 const { User } = require("../models");
 exports.getProfile = async (req, res, next) => {
   try {
     const users = await User.findAll();
-    if (!users) {
-      let err = new Error("Not found any user");
-      err.statusCode = 400;
-      throw err;
+    if (users.length == 0) {
+      console.log("dfs");
+      res.status(400).json("No one in database");
     } else {
+      console.log("users");
       res.status(200).json(users);
     }
   } catch (err) {

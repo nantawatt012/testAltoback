@@ -20,7 +20,10 @@ module.exports = (sequelize, DataTypes) => {
       mobileNum: {
         type: DataTypes.STRING,
         unique: true,
-        validate: { is: /^[0-9]{10}$/ }
+        allowNull: true,
+        validate: {
+          is: /^(\d{10})?$/i
+        }
       }
     },
     {
